@@ -1,4 +1,4 @@
-# Hot Delivery — Case Study
+# Hot Delivery Optimization Project
 
 **Course:** RSM 8443 — Optimizing Supply Chain Management and Logistics, Winter 2026  
 **Topic:** Prescriptive routing and assignment models for online food delivery platforms
