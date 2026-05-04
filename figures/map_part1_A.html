@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_323ef894ed01f80b996f892a46346e12 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="position:fixed;bottom:30px;left:30px;z-index:999;
+                background:white;padding:8px 12px;border-radius:6px;
+                border:1px solid #ccc;font-size:12px;line-height:1.8">
+      <b>Legend</b><br>
+      🟢 Depot &nbsp; 🟠 Restaurant &nbsp; 🔴 Delivery nbhd<br>
+      Numbers = arc step order
+    </div>
+    
+            <div class="folium-map" id="map_323ef894ed01f80b996f892a46346e12" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_323ef894ed01f80b996f892a46346e12 = L.map(
+                "map_323ef894ed01f80b996f892a46346e12",
+                {
+                    center: [43.66276666666666, -79.38043333333333],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_eade82c213cc12815cf62f72b11b980a = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_eade82c213cc12815cf62f72b11b980a.addTo(map_323ef894ed01f80b996f892a46346e12);
+        
+    
+            var poly_line_12eeda3de8174ebdf02bf022b6b58411 = L.polyline(
+                [[43.6827, -79.373], [43.6492, -79.3823], [43.6564, -79.386]],
+                {"bubblingMouseEvents": true, "color": "steelblue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "steelblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_323ef894ed01f80b996f892a46346e12);
+        
+    
+            var marker_3e7bf43802d79c762258ba4b535b4d7e = L.marker(
+                [43.665949999999995, -79.37765],
+                {
+}
+            ).addTo(map_323ef894ed01f80b996f892a46346e12);
+        
+    
+            var div_icon_962eba67bf99113da9343d5616b8aff2 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:bold;color:steelblue;background:white;padding:1px 4px;border-radius:3px;opacity:0.9;white-space:nowrap\"\u003e1\u003c/div\u003e",
+  "iconSize": [32, 16],
+  "iconAnchor": [16, 8],
+  "className": "empty",
+});
+        
+    
+                marker_3e7bf43802d79c762258ba4b535b4d7e.setIcon(div_icon_962eba67bf99113da9343d5616b8aff2);
+            
+    
+            var marker_4b9cf0ded49f0ccfef76975e843ac3e7 = L.marker(
+                [43.6528, -79.38415],
+                {
+}
+            ).addTo(map_323ef894ed01f80b996f892a46346e12);
+        
+    
+            var div_icon_eba8937f504c86e7e255c501a32da6a2 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:bold;color:steelblue;background:white;padding:1px 4px;border-radius:3px;opacity:0.9;white-space:nowrap\"\u003e2\u003c/div\u003e",
+  "iconSize": [32, 16],
+  "iconAnchor": [16, 8],
+  "className": "empty",
+});
+        
+    
+                marker_4b9cf0ded49f0ccfef76975e843ac3e7.setIcon(div_icon_eba8937f504c86e7e255c501a32da6a2);
+            
+    
+            var marker_43340e6ac9dc209bbbc2468d9d3d51df = L.marker(
+                [43.6827, -79.373],
+                {
+}
+            ).addTo(map_323ef894ed01f80b996f892a46346e12);
+        
+    
+            var icon_5ab101f571459c1b51885da9eb6d241a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_43340e6ac9dc209bbbc2468d9d3d51df.bindTooltip(
+                `<div>
+                     🏠 Depot: Downtown Toronto (Rosedale)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_43340e6ac9dc209bbbc2468d9d3d51df.setIcon(icon_5ab101f571459c1b51885da9eb6d241a);
+            
+    
+            var marker_94b6b189a92ae5c04147b1dade71ab83 = L.marker(
+                [43.6492, -79.3823],
+                {
+}
+            ).addTo(map_323ef894ed01f80b996f892a46346e12);
+        
+    
+            var icon_03ec33a873ed734a998b862e59d177b8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_94b6b189a92ae5c04147b1dade71ab83.bindTooltip(
+                `<div>
+                     🍽 Restaurant: Downtown Toronto (Underground city)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_94b6b189a92ae5c04147b1dade71ab83.setIcon(icon_03ec33a873ed734a998b862e59d177b8);
+            
+    
+            var marker_03037e56589fa55d3a5be5f33c0b75a5 = L.marker(
+                [43.6564, -79.386],
+                {
+}
+            ).addTo(map_323ef894ed01f80b996f892a46346e12);
+        
+    
+            var icon_94355617f51b53693003e1b5623e58c3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "flag",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_03037e56589fa55d3a5be5f33c0b75a5.bindTooltip(
+                `<div>
+                     📍 Delivery: Downtown Toronto (Central Bay Street)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_03037e56589fa55d3a5be5f33c0b75a5.setIcon(icon_94355617f51b53693003e1b5623e58c3);
+            
+</script>
+</html>

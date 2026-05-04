@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_a9de0c956b7c040f023462a03e62807d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="position:fixed;bottom:30px;left:30px;z-index:999;
+                background:white;padding:8px 14px;border-radius:6px;
+                border:1px solid #ccc;font-size:12px;line-height:1.9">
+      <b>Part II — Inst A | W=60 min | max-wait<br>Dist: 43.32 km | Avg wait: 34.6 min | Max wait: 60.0 min</b><br>
+      🟢 Depot &nbsp; 🟠 Restaurant (hover: release + arrival)
+      &nbsp; 🔴 Delivery (hover: arrival + wait)<br>
+      Numbers = arc step order
+    </div>
+    
+            <div class="folium-map" id="map_a9de0c956b7c040f023462a03e62807d" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_a9de0c956b7c040f023462a03e62807d = L.map(
+                "map_a9de0c956b7c040f023462a03e62807d",
+                {
+                    center: [43.718579999999996, -79.35802000000001],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_1820352a972202225ace1a80aa3a8bfb = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_1820352a972202225ace1a80aa3a8bfb.addTo(map_a9de0c956b7c040f023462a03e62807d);
+        
+    
+            var poly_line_a977eb63a4defd80140896f702a73351 = L.polyline(
+                [[43.6827, -79.373], [43.7298, -79.2639], [43.7712, -79.2144], [43.7143, -79.4065], [43.6949, -79.5323]],
+                {"bubblingMouseEvents": true, "color": "steelblue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "steelblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a9de0c956b7c040f023462a03e62807d);
+        
+    
+            var marker_17ddd90d44e0cf3fdf1a44ec537d08e6 = L.marker(
+                [43.70625, -79.31845000000001],
+                {
+}
+            ).addTo(map_a9de0c956b7c040f023462a03e62807d);
+        
+    
+            var div_icon_80f7fe89df79e91318282897bbfdca77 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:bold;color:steelblue;background:white;padding:1px 4px;border-radius:3px;opacity:0.9;white-space:nowrap\"\u003e1\u003c/div\u003e",
+  "iconSize": [32, 16],
+  "iconAnchor": [16, 8],
+  "className": "empty",
+});
+        
+    
+                marker_17ddd90d44e0cf3fdf1a44ec537d08e6.setIcon(div_icon_80f7fe89df79e91318282897bbfdca77);
+            
+    
+            var marker_50352cf09cc5a30f9ba3f1bd7c429b4c = L.marker(
+                [43.7505, -79.23915],
+                {
+}
+            ).addTo(map_a9de0c956b7c040f023462a03e62807d);
+        
+    
+            var div_icon_f73c612c720522d55a62370f942c1246 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:bold;color:steelblue;background:white;padding:1px 4px;border-radius:3px;opacity:0.9;white-space:nowrap\"\u003e2\u003c/div\u003e",
+  "iconSize": [32, 16],
+  "iconAnchor": [16, 8],
+  "className": "empty",
+});
+        
+    
+                marker_50352cf09cc5a30f9ba3f1bd7c429b4c.setIcon(div_icon_f73c612c720522d55a62370f942c1246);
+            
+    
+            var marker_be0d4898e98678a1acadf87550a5023c = L.marker(
+                [43.74275, -79.31045],
+                {
+}
+            ).addTo(map_a9de0c956b7c040f023462a03e62807d);
+        
+    
+            var div_icon_0cbaf19932b318d8716ac30592a32820 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:bold;color:steelblue;background:white;padding:1px 4px;border-radius:3px;opacity:0.9;white-space:nowrap\"\u003e3\u003c/div\u003e",
+  "iconSize": [32, 16],
+  "iconAnchor": [16, 8],
+  "className": "empty",
+});
+        
+    
+                marker_be0d4898e98678a1acadf87550a5023c.setIcon(div_icon_0cbaf19932b318d8716ac30592a32820);
+            
+    
+            var marker_f5c83d503509a2964ccd30b7b914af93 = L.marker(
+                [43.7046, -79.46940000000001],
+                {
+}
+            ).addTo(map_a9de0c956b7c040f023462a03e62807d);
+        
+    
+            var div_icon_a7f0f9c945ff927c24c9521e8d000561 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:bold;color:steelblue;background:white;padding:1px 4px;border-radius:3px;opacity:0.9;white-space:nowrap\"\u003e4\u003c/div\u003e",
+  "iconSize": [32, 16],
+  "iconAnchor": [16, 8],
+  "className": "empty",
+});
+        
+    
+                marker_f5c83d503509a2964ccd30b7b914af93.setIcon(div_icon_a7f0f9c945ff927c24c9521e8d000561);
+            
+    
+            var marker_38f3348727f90dd110076e36bcba3c3d = L.marker(
+                [43.6827, -79.373],
+                {
+}
+            ).addTo(map_a9de0c956b7c040f023462a03e62807d);
+        
+    
+            var icon_6aa8467f043aaf6998f9549479ed886d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_38f3348727f90dd110076e36bcba3c3d.bindTooltip(
+                `<div>
+                     🏠 Depot: Downtown Toronto (Rosedale)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_38f3348727f90dd110076e36bcba3c3d.setIcon(icon_6aa8467f043aaf6998f9549479ed886d);
+            
+    
+            var marker_cfc32c13b5c50ec44f24176c68434d06 = L.marker(
+                [43.7298, -79.2639],
+                {
+}
+            ).addTo(map_a9de0c956b7c040f023462a03e62807d);
+        
+    
+            var icon_8eab579082de5adb78cd9aa901dc44bb = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_cfc32c13b5c50ec44f24176c68434d06.bindTooltip(
+                `<div>
+                     🍽 Restaurant (order 1): Scarborough (Kennedy Park / Ionview / East Birchmount Park)
+  Release: 0.0 min  Arrival: 0.0 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cfc32c13b5c50ec44f24176c68434d06.setIcon(icon_8eab579082de5adb78cd9aa901dc44bb);
+            
+    
+            var marker_c7ecb54dc7b50b1a32d1cc9ba9d1ec94 = L.marker(
+                [43.7143, -79.4065],
+                {
+}
+            ).addTo(map_a9de0c956b7c040f023462a03e62807d);
+        
+    
+            var icon_96ac482c7264479e76bc775df1e6305f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_c7ecb54dc7b50b1a32d1cc9ba9d1ec94.bindTooltip(
+                `<div>
+                     🍽 Restaurant (order 2): Central Toronto (North Toronto West)
+  Release: 63.0 min  Arrival: 107.5 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c7ecb54dc7b50b1a32d1cc9ba9d1ec94.setIcon(icon_96ac482c7264479e76bc775df1e6305f);
+            
+    
+            var marker_e2b3708c0f908dbe3a5c54bd7f23ef67 = L.marker(
+                [43.7712, -79.2144],
+                {
+}
+            ).addTo(map_a9de0c956b7c040f023462a03e62807d);
+        
+    
+            var icon_8b62fa9564d3326f8857373e9b4442ce = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "flag",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_e2b3708c0f908dbe3a5c54bd7f23ef67.bindTooltip(
+                `<div>
+                     📍 Delivery (order 1): Scarborough (Woburn)
+  Arrival: 9.1 min  Wait: 9.1 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e2b3708c0f908dbe3a5c54bd7f23ef67.setIcon(icon_8b62fa9564d3326f8857373e9b4442ce);
+            
+    
+            var marker_c54d564058b1827fd7b1c4608fd109b8 = L.marker(
+                [43.6949, -79.5323],
+                {
+}
+            ).addTo(map_a9de0c956b7c040f023462a03e62807d);
+        
+    
+            var icon_8e1c28c4db8364601d8ec901ba76a95b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "flag",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_c54d564058b1827fd7b1c4608fd109b8.bindTooltip(
+                `<div>
+                     📍 Delivery (order 2): Etobicoke (Westmount)
+  Arrival: 123.0 min  Wait: 60.0 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c54d564058b1827fd7b1c4608fd109b8.setIcon(icon_8e1c28c4db8364601d8ec901ba76a95b);
+            
+</script>
+</html>

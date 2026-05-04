@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_df251c3856d0bdd820b4e18f2db6681c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+    <div style="position:fixed;bottom:30px;left:30px;z-index:999;
+                background:white;padding:8px 14px;border-radius:6px;
+                border:1px solid #ccc;font-size:12px;line-height:1.9">
+      <b>Part III — small_D2 | W=60 min</b><br>
+      Dist: 30.18 km |
+      Avg wait: 35.4 min |
+      Max wait: 100.1 min<br>
+      <span style="color:steelblue">■ D0 (40 km/h)</span> &nbsp;<span style="color:darkorange">■ D1 (35 km/h)</span> &nbsp;<br>
+      🟢 Depot &nbsp; 🟠 Restaurant (hover: release + arrival)
+      &nbsp; 🔴 Delivery (hover: arrival + wait)
+    </div>
+    
+            <div class="folium-map" id="map_df251c3856d0bdd820b4e18f2db6681c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_df251c3856d0bdd820b4e18f2db6681c = L.map(
+                "map_df251c3856d0bdd820b4e18f2db6681c",
+                {
+                    center: [43.6532, -79.3832],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_5be8fe4ad9db6a0ddd2c63e593627da3 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_5be8fe4ad9db6a0ddd2c63e593627da3.addTo(map_df251c3856d0bdd820b4e18f2db6681c);
+        
+    
+            var poly_line_37a6fcdab424434aa6773f78b56d4047 = L.polyline(
+                [[43.6496, -79.3833], [43.6541, -79.3978], [43.6564, -79.386], [43.6572, -79.3783], [43.6683, -79.4205], [43.6383, -79.4301], [43.6889, -79.4507], [43.7535, -79.4472]],
+                {"bubblingMouseEvents": true, "color": "steelblue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "steelblue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_df251c3856d0bdd820b4e18f2db6681c);
+        
+    
+            poly_line_37a6fcdab424434aa6773f78b56d4047.bindTooltip(
+                `<div>
+                     Driver 0 | 40 km/h | depot: Downtown Toronto (Richmond / A
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_c0622214d4f700e8ab91ed65b5957cfd = L.marker(
+                [43.651849999999996, -79.39055],
+                {
+}
+            ).addTo(map_df251c3856d0bdd820b4e18f2db6681c);
+        
+    
+            var div_icon_cb99383c660ead2f6e172e5217e00e8a = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:10px;font-weight:bold;color:steelblue;background:white;padding:1px 3px;border-radius:3px;opacity:0.9;white-space:nowrap\"\u003eD0\u00b71\u003c/div\u003e",
+  "iconSize": [38, 16],
+  "iconAnchor": [19, 8],
+  "className": "empty",
+});
+        
+    
+                marker_c0622214d4f700e8ab91ed65b5957cfd.setIcon(div_icon_cb99383c660ead2f6e172e5217e00e8a);
+            
+    
+            var marker_97c8cad0607dc283e29a2c53a2413190 = L.marker(
+                [43.655249999999995, -79.39189999999999],
+                {
+}
+            ).addTo(map_df251c3856d0bdd820b4e18f2db6681c);
+        
+    
+            var div_icon_cad6f4e58a71898eeb4db1f66a9f9790 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:10px;font-weight:bold;color:steelblue;background:white;padding:1px 3px;border-radius:3px;opacity:0.9;white-space:nowrap\"\u003eD0\u00b72\u003c/div\u003e",
+  "iconSize": [38, 16],
+  "iconAnchor": [19, 8],
+  "className": "empty",
+});
+        
+    
+                marker_97c8cad0607dc283e29a2c53a2413190.setIcon(div_icon_cad6f4e58a71898eeb4db1f66a9f9790);
+            
+    
+            var marker_c7e9955ae6f85b136b56d2930ca49091 = L.marker(
+                [43.656800000000004, -79.38215],
+                {
+}
+            ).addTo(map_df251c3856d0bdd820b4e18f2db6681c);
+        
+    
+            var div_icon_484506bef413d746a15de8aafdb6d0cc = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:10px;font-weight:bold;color:steelblue;background:white;padding:1px 3px;border-radius:3px;opacity:0.9;white-space:nowrap\"\u003eD0\u00b73\u003c/div\u003e",
+  "iconSize": [38, 16],
+  "iconAnchor": [19, 8],
+  "className": "empty",
+});
+        
+    
+                marker_c7e9955ae6f85b136b56d2930ca49091.setIcon(div_icon_484506bef413d746a15de8aafdb6d0cc);
+            
+    
+            var marker_38bcd0a7179ba71971bc0a57d11b11e1 = L.marker(
+                [43.66275, -79.3994],
+                {
+}
+            ).addTo(map_df251c3856d0bdd820b4e18f2db6681c);
+        
+    
+            var div_icon_29b80c0beb1584dbd5b0fb49e42bc7c8 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:10px;font-weight:bold;color:steelblue;background:white;padding:1px 3px;border-radius:3px;opacity:0.9;white-space:nowrap\"\u003eD0\u00b74\u003c/div\u003e",
+  "iconSize": [38, 16],
+  "iconAnchor": [19, 8],
+  "className": "empty",
+});
+        
+    
+                marker_38bcd0a7179ba71971bc0a57d11b11e1.setIcon(div_icon_29b80c0beb1584dbd5b0fb49e42bc7c8);
+            
+    
+            var marker_2a2608ab127252521bfd9e4900d81a3b = L.marker(
+                [43.6533, -79.4253],
+                {
+}
+            ).addTo(map_df251c3856d0bdd820b4e18f2db6681c);
+        
+    
+            var div_icon_b4904b589810c6b1ab60bb26c49d57eb = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:10px;font-weight:bold;color:steelblue;background:white;padding:1px 3px;border-radius:3px;opacity:0.9;white-space:nowrap\"\u003eD0\u00b75\u003c/div\u003e",
+  "iconSize": [38, 16],
+  "iconAnchor": [19, 8],
+  "className": "empty",
+});
+        
+    
+                marker_2a2608ab127252521bfd9e4900d81a3b.setIcon(div_icon_b4904b589810c6b1ab60bb26c49d57eb);
+            
+    
+            var marker_759ce473bc49eb1180e3b2bb60c39cff = L.marker(
+                [43.6636, -79.4404],
+                {
+}
+            ).addTo(map_df251c3856d0bdd820b4e18f2db6681c);
+        
+    
+            var div_icon_6e7068398f088e33cebfb571f677b20b = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:10px;font-weight:bold;color:steelblue;background:white;padding:1px 3px;border-radius:3px;opacity:0.9;white-space:nowrap\"\u003eD0\u00b76\u003c/div\u003e",
+  "iconSize": [38, 16],
+  "iconAnchor": [19, 8],
+  "className": "empty",
+});
+        
+    
+                marker_759ce473bc49eb1180e3b2bb60c39cff.setIcon(div_icon_6e7068398f088e33cebfb571f677b20b);
+            
+    
+            var marker_4ca2f0d125a739858811bf242b77899a = L.marker(
+                [43.721199999999996, -79.44895],
+                {
+}
+            ).addTo(map_df251c3856d0bdd820b4e18f2db6681c);
+        
+    
+            var div_icon_d32693cf805babce71c8560dc73e9fe7 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:10px;font-weight:bold;color:steelblue;background:white;padding:1px 3px;border-radius:3px;opacity:0.9;white-space:nowrap\"\u003eD0\u00b77\u003c/div\u003e",
+  "iconSize": [38, 16],
+  "iconAnchor": [19, 8],
+  "className": "empty",
+});
+        
+    
+                marker_4ca2f0d125a739858811bf242b77899a.setIcon(div_icon_d32693cf805babce71c8560dc73e9fe7);
+            
+    
+            var marker_322d57630179e8ff8942121914fc039d = L.marker(
+                [43.6496, -79.3833],
+                {
+}
+            ).addTo(map_df251c3856d0bdd820b4e18f2db6681c);
+        
+    
+            var icon_cac25c60fa2ad85325afdd3238dbfee0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_322d57630179e8ff8942121914fc039d.bindTooltip(
+                `<div>
+                     🏠 Depot D0: Downtown Toronto (Richmond / Adelaide / King)
+  Speed: 40 km/h
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_322d57630179e8ff8942121914fc039d.setIcon(icon_cac25c60fa2ad85325afdd3238dbfee0);
+            
+    
+            var marker_0b9945dd2fef1486aa550b1ccba0880e = L.marker(
+                [43.6564, -79.386],
+                {
+}
+            ).addTo(map_df251c3856d0bdd820b4e18f2db6681c);
+        
+    
+            var icon_9a23fc6291c12cf60ebd6010a470d174 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_0b9945dd2fef1486aa550b1ccba0880e.bindTooltip(
+                `<div>
+                     🍽 Restaurant (order 1): Downtown Toronto (Central Bay Street)
+  Release: 0.0 min  Arrival: 8.5 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0b9945dd2fef1486aa550b1ccba0880e.setIcon(icon_9a23fc6291c12cf60ebd6010a470d174);
+            
+    
+            var marker_5c3625d132483130e7bd4e5e69b1d6a1 = L.marker(
+                [43.6683, -79.4205],
+                {
+}
+            ).addTo(map_df251c3856d0bdd820b4e18f2db6681c);
+        
+    
+            var icon_f5abf8420b86bb07df8610fb1e5024f2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_5c3625d132483130e7bd4e5e69b1d6a1.bindTooltip(
+                `<div>
+                     🍽 Restaurant (order 2): Downtown Toronto (Christie)
+  Release: 32.0 min  Arrival: 65.4 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5c3625d132483130e7bd4e5e69b1d6a1.setIcon(icon_f5abf8420b86bb07df8610fb1e5024f2);
+            
+    
+            var marker_343b9d5cff44cb1b142c4c845ba78454 = L.marker(
+                [43.6572, -79.3783],
+                {
+}
+            ).addTo(map_df251c3856d0bdd820b4e18f2db6681c);
+        
+    
+            var icon_6105c0125a57f82878234c18f87c2923 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_343b9d5cff44cb1b142c4c845ba78454.bindTooltip(
+                `<div>
+                     🍽 Restaurant (order 3): Downtown Toronto (Ryerson)
+  Release: 60.0 min  Arrival: 60.0 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_343b9d5cff44cb1b142c4c845ba78454.setIcon(icon_6105c0125a57f82878234c18f87c2923);
+            
+    
+            var marker_59171419c999faa20d5bea01b68e51fb = L.marker(
+                [43.6541, -79.3978],
+                {
+}
+            ).addTo(map_df251c3856d0bdd820b4e18f2db6681c);
+        
+    
+            var icon_74eb0fe02f8bfcec1908a740bd08c54c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_59171419c999faa20d5bea01b68e51fb.bindTooltip(
+                `<div>
+                     🍽 Restaurant (order 5): Downtown Toronto (Kensington Market / Chinatown / Grange Park)
+  Release: 7.0 min  Arrival: 7.0 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_59171419c999faa20d5bea01b68e51fb.setIcon(icon_74eb0fe02f8bfcec1908a740bd08c54c);
+            
+    
+            var marker_5c2cf15800e697b4ce80d5a1354613c4 = L.marker(
+                [43.7535, -79.4472],
+                {
+}
+            ).addTo(map_df251c3856d0bdd820b4e18f2db6681c);
+        
+    
+            var icon_cb0592140e6fb4f2a83ae91c9148848a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "flag",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_5c2cf15800e697b4ce80d5a1354613c4.bindTooltip(
+                `<div>
+                     📍 Delivery (order 1, D0): North York (Armour Heights / Wilson Heights / Downsview North)
+  Arrival: 100.1 min  Wait: 100.1 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5c2cf15800e697b4ce80d5a1354613c4.setIcon(icon_cb0592140e6fb4f2a83ae91c9148848a);
+            
+    
+            var marker_7a6dcecc065a1589b161115bb4c155fb = L.marker(
+                [43.6383, -79.4301],
+                {
+}
+            ).addTo(map_df251c3856d0bdd820b4e18f2db6681c);
+        
+    
+            var icon_670a14bb0b2138e0be4024d009841d3e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "flag",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_7a6dcecc065a1589b161115bb4c155fb.bindTooltip(
+                `<div>
+                     📍 Delivery (order 2, D0): West Toronto (Brockton / Parkdale Village / Exhibition Place)
+  Arrival: 70.6 min  Wait: 38.6 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7a6dcecc065a1589b161115bb4c155fb.setIcon(icon_670a14bb0b2138e0be4024d009841d3e);
+            
+    
+            var marker_b435fd6334ebbfe9a8610b6d5de6b074 = L.marker(
+                [43.6889, -79.4507],
+                {
+}
+            ).addTo(map_df251c3856d0bdd820b4e18f2db6681c);
+        
+    
+            var icon_f0aac4e5f37e3f72b5fd0767753d8e65 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "flag",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_b435fd6334ebbfe9a8610b6d5de6b074.bindTooltip(
+                `<div>
+                     📍 Delivery (order 3, D0): York (Fairbank / Oakwood)
+  Arrival: 84.4 min  Wait: 24.4 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b435fd6334ebbfe9a8610b6d5de6b074.setIcon(icon_f0aac4e5f37e3f72b5fd0767753d8e65);
+            
+    
+            var poly_line_e2fc9782b0da2effe73792a1ba4526be = L.polyline(
+                [[43.6513, -79.3756], [43.6784, -79.2941]],
+                {"bubblingMouseEvents": true, "color": "darkorange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "darkorange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_df251c3856d0bdd820b4e18f2db6681c);
+        
+    
+            poly_line_e2fc9782b0da2effe73792a1ba4526be.bindTooltip(
+                `<div>
+                     Driver 1 | 35 km/h | depot: Downtown Toronto (St. James Pa
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_fbbd59189317f58bdb81444a7f468039 = L.marker(
+                [43.66485, -79.33485],
+                {
+}
+            ).addTo(map_df251c3856d0bdd820b4e18f2db6681c);
+        
+    
+            var div_icon_158861e1bfe6816b6e1e71bf00754a7e = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:10px;font-weight:bold;color:darkorange;background:white;padding:1px 3px;border-radius:3px;opacity:0.9;white-space:nowrap\"\u003eD1\u00b71\u003c/div\u003e",
+  "iconSize": [38, 16],
+  "iconAnchor": [19, 8],
+  "className": "empty",
+});
+        
+    
+                marker_fbbd59189317f58bdb81444a7f468039.setIcon(div_icon_158861e1bfe6816b6e1e71bf00754a7e);
+            
+    
+            var marker_d88104f1f5ac8bf0d45f47c941f15a9d = L.marker(
+                [43.6513, -79.3756],
+                {
+}
+            ).addTo(map_df251c3856d0bdd820b4e18f2db6681c);
+        
+    
+            var icon_8dbb36114b75859e2592170e50487eaa = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_d88104f1f5ac8bf0d45f47c941f15a9d.bindTooltip(
+                `<div>
+                     🏠 Depot D1: Downtown Toronto (St. James Park)
+  Speed: 35 km/h
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d88104f1f5ac8bf0d45f47c941f15a9d.setIcon(icon_8dbb36114b75859e2592170e50487eaa);
+            
+    
+            var marker_bd10fa3e5e166ae21e8102487b77996e = L.marker(
+                [43.6784, -79.2941],
+                {
+}
+            ).addTo(map_df251c3856d0bdd820b4e18f2db6681c);
+        
+    
+            var icon_70a9231bc1d5aaac3bce27dda89ff9f0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "flag",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+            marker_bd10fa3e5e166ae21e8102487b77996e.bindTooltip(
+                `<div>
+                     📍 Delivery (order 4, D1): East Toronto (The Beaches)
+  Arrival: 48.4 min  Wait: 12.4 min
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_bd10fa3e5e166ae21e8102487b77996e.setIcon(icon_70a9231bc1d5aaac3bce27dda89ff9f0);
+            
+</script>
+</html>
