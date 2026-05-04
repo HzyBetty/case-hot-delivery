@@ -1,5 +1,5 @@
 # Ignore Word report
-report/Hot_Delivery_Report.doc
+report/Hot_Delivery_Report.docx
 
 # Ignore temporary Word files
-~$*.doc*
+~$*.docx*
